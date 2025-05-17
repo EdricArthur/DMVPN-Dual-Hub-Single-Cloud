@@ -1,32 +1,48 @@
-# DMVPN Dual Hub Single Cloud Project
+# Dự án DMVPN Dual Hub Single Cloud
 
-This repository contains the configuration files for a DMVPN (Dynamic Multipoint Virtual Private Network) setup with a dual hub, single cloud architecture. The configurations are designed for Cisco devices and include settings for PCs, servers, switches, hubs, spokes, ISPs, and a Google router.
+Dự án này trình bày việc triển khai một mạng DMVPN (Dynamic Multipoint VPN) với kiến trúc **Dual Hub, Single Cloud**. Mục tiêu là xây dựng một hệ thống mạng an toàn, có khả năng mở rộng linh hoạt và độ sẵn sàng cao thông qua cơ chế dự phòng giữa hai Hub.
 
-## Project Overview
+Giải pháp tích hợp các công nghệ then chốt bao gồm:
+* **GRE (Generic Routing Encapsulation):** Để tạo đường hầm (tunnel) ảo.
+* **IPsec:** Để mã hóa dữ liệu, đảm bảo tính bảo mật cho thông tin truyền qua tunnel.
+* **NHRP (Next Hop Resolution Protocol):** Cho phép các Spoke tự động tìm thấy địa chỉ của các Spoke khác, hỗ trợ kết nối trực tiếp Spoke-to-Spoke.
+* **OSPF (Open Shortest Path First):** Giao thức định tuyến nội bộ được sử dụng trong mạng DMVPN để trao đổi thông tin định tuyến giữa các Hub và Spoke.
 
-The DMVPN dual hub single cloud topology provides a scalable and secure network solution using GRE (Generic Routing Encapsulation) tunnels, IPsec encryption, and NHRP (Next Hop Resolution Protocol). The setup includes:
+Kết nối ra mạng ngoài (Internet) được quản lý bởi các ISP (Nhà cung cấp Dịch vụ Internet) sử dụng giao thức **RIP (Routing Information Protocol)**.
 
-- **Hubs**: Two hub routers (Hub-1 and Hub-2) for redundancy.
-- **Spokes**: Seven spoke routers (Spoke-1 to Spoke-7) connecting to the hubs.
-- **PCs and Servers**: Configured with static routes and telnet access.
-- **Switches**: Basic switch configurations for connectivity.
-- **ISPs**: Four ISP routers using RIP (Routing Information Protocol) for external connectivity.
-- **Google Router**: Simulates an external network.
+## Kiến trúc Mạng và Các Thành phần Chính
 
-## Configuration Files
+![Sơ đồ mạng DMVPN Dual Hub](./dmvpn.jpg)
 
-Below are the configuration details for each device in the network.
+Kiến trúc tổng thể của dự án bao gồm các thành phần cốt lõi sau:
+
+* **Trung tâm Điều phối (Hubs):**
+    * Gồm hai router trung tâm (**Hub1** và **Hub2**), đóng vai trò là điểm hội tụ cho các kết nối DMVPN từ các chi nhánh (Spokes).
+    * Cấu hình Dual Hub đảm bảo tính dự phòng và liên tục của mạng; nếu một Hub gặp sự cố, Hub còn lại sẽ tiếp quản.
+* **Các Chi nhánh (Spokes):**
+    * Là các router tại những địa điểm từ xa, đại diện cho các văn phòng chi nhánh.
+    * Tự động thiết lập kết nối tunnel DMVPN an toàn về cả hai Hub.
+* **Hạ tầng Mạng Nội bộ:**
+    * **Thiết bị Đầu cuối (PCs và Servers):** Các máy tính cá nhân và máy chủ được cấu hình địa chỉ IP tĩnh và có một tuyến đường mặc định (default route) trỏ về router nội bộ (Spoke hoặc Switch) để truy cập mạng.
+    * **Switches:** Các thiết bị chuyển mạch Layer 2 đơn giản, đảm bảo kết nối vật lý và phân đoạn mạng (VLAN) cho các thiết bị trong cùng một site.
+* **Kết nối Mạng Ngoài:**
+    * **Nhà cung cấp Dịch vụ Internet (ISPs):** Hai router mô phỏng vai trò của ISP, sử dụng RIP để quảng bá và học các tuyến đường mạng từ/đến mạng DMVPN và "Internet".
+    * **Google Router:** Một router mô phỏng một điểm đến trên Internet (ví dụ: máy chủ DNS của Google) với địa chỉ IP `8.8.8.8`, được sử dụng để kiểm tra kết nối từ các thiết bị trong mạng DMVPN ra bên ngoài.
+
+## Tệp Cấu hình
+
+Phần tiếp theo trình bày chi tiết cấu hình cho từng thiết bị trong dự án.
 
 ### PCs
 
 #### PC-1
 ```bash
-en
-conf t
-ho PC-1
-int e0
-ip add 192.168.1.10 255.255.255.0
-no shu
+enable
+confing terminal 
+hostbname PC-1
+interface ethernet 0
+ip addres 192.168.1.10 255.255.255.0
+no shutgown
 duplex full
 exi
 ip route 0.0.0.0 0.0.0.0 192.168.1.1
@@ -967,20 +983,20 @@ end
 wr
 ```
 
-## Setup Instructions
+## Hướng dẫn Cài đặt
 
-1. **Configure Devices**: Apply the configurations to the respective devices using a Cisco IOS-compatible emulator or hardware.
-2. **Verify Connectivity**: Ensure all interfaces are up and running (`no shutdown`).
-3. **Test DMVPN**: Verify tunnel establishment and NHRP mappings using commands like `show dmvpn` and `show ip nhrp`.
-4. **Check Routing**: Confirm OSPF and RIP routing tables with `show ip route`.
-5. **Test Telnet**: Verify telnet access to PCs and servers using the configured password.
+1.  **Cấu hình Thiết bị**: Áp dụng các cấu hình cho từng thiết bị tương ứng bằng trình giả lập tương thích Cisco IOS hoặc phần cứng.
+2.  **Xác minh Kết nối**: Đảm bảo tất cả các giao diện đều hoạt động (lệnh `no shutdown`).
+3.  **Kiểm tra DMVPN**: Xác minh việc thiết lập tunnel và ánh xạ NHRP bằng các lệnh như `show dmvpn` và `show ip nhrp`.
+4.  **Kiểm tra Định tuyến**: Xác nhận bảng định tuyến OSPF và RIP bằng lệnh `show ip route`.
+5.  **Kiểm tra Telnet**: Xác minh quyền truy cập telnet vào các máy tính cá nhân (PC) và máy chủ bằng mật khẩu đã cấu hình.
 
-## Notes
+## Lưu ý
 
-- Replace `DMVPN_KEY` and `NHRP_KEY` with secure keys in a production environment.
-- Ensure consistent OSPF router IDs and area configurations.
-- The configurations assume full-duplex interfaces for optimal performance.
+-   Thay thế `DMVPN_KEY` và `NHRP_KEY` bằng các khóa bảo mật trong môi trường sản xuất.
+-   Đảm bảo tính nhất quán của ID router OSPF và cấu hình vùng (area).
+-   Các cấu hình này giả định các giao diện hoạt động ở chế độ song công toàn phần (full-duplex) để đạt hiệu suất tối ưu.
 
-## License
+## Giấy phép
 
-This project is licensed under the MIT License.
+Dự án này được cấp phép theo Giấy phép MIT.
