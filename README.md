@@ -38,145 +38,145 @@ Phần tiếp theo trình bày chi tiết cấu hình cho từng thiết bị tr
 #### PC-1
 ```bash
 enable
-confing terminal 
-hostbname PC-1
-interface ethernet 0
-ip addres 192.168.1.10 255.255.255.0
-no shutgown
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.1.1
-ip route 0.0.0.0 0.0.0.0 192.168.1.2
-line vty 0 4
-pass telnet
-login
-do wr
+configure terminal
+ hostname PC-1
+ interface ethernet 0
+  ip address 192.168.1.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.1.1
+ ip route 0.0.0.0 0.0.0.0 192.168.1.2
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-2
 ```bash
-en
-conf t
-ho PC-2
-int e0
-ip add 192.168.2.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.2.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-2
+ interface ethernet 0
+  ip address 192.168.2.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.2.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-3
 ```bash
-en
-conf t
-ho PC-3
-int e0
-ip add 192.168.3.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.3.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-3
+ interface ethernet 0
+  ip address 192.168.3.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.3.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-4
 ```bash
-en
-conf t
-ho PC-4
-int e0
-ip add 192.168.4.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.4.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-4
+ interface ethernet 0
+  ip address 192.168.4.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.4.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-5
 ```bash
-en
-conf t
-ho PC-5
-int e0
-ip add 192.168.5.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.5.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-5
+ interface ethernet 0
+  ip address 192.168.5.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.5.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-6
 ```bash
-en
-conf t
-ho PC-6
-int e0
-ip add 192.168.6.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.6.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-6
+ interface ethernet 0
+  ip address 192.168.6.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.6.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-7
 ```bash
-en
-conf t
-ho PC-7
-int e0
-ip add 192.168.7.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.7.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-7
+ interface ethernet 0
+  ip address 192.168.7.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.7.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### PC-8
 ```bash
-en
-conf t
-ho PC-8
-int e0
-ip add 192.168.8.10 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.8.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname PC-8
+ interface ethernet 0
+  ip address 192.168.8.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.8.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
@@ -184,56 +184,56 @@ end
 
 #### Server-1
 ```bash
-en
-conf t
-ho Server-1
-int e0
-ip add 192.168.1.11 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.1.1
-ip route 0.0.0.0 0.0.0.0 192.168.1.2
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname Server-1
+ interface ethernet 0
+  ip address 192.168.1.11 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.1.1
+ ip route 0.0.0.0 0.0.0.0 192.168.1.2
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### Server-2
 ```bash
-en
-conf t
-ho Server-2
-int e0
-ip add 192.168.2.11 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.2.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname Server-2
+ interface ethernet 0
+  ip address 192.168.2.11 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.2.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
 #### Server-3
 ```bash
-en
-conf t
-ho Server-3
-int e0
-ip add 192.168.5.11 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 192.168.5.1
-line vty 0 4
-pass telnet
-login
-do wr
+enable
+configure terminal
+ hostname Server-3
+ interface ethernet 0
+  ip address 192.168.5.11 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.5.1
+ line vty 0 4
+  password telnet
+  login
+ do write memory
 end
 ```
 
@@ -241,746 +241,737 @@ end
 
 #### Switch-1
 ```bash
-en
-conf t
-ho Switch-1
-int e0/0
-duplex full
-no shut
-int e0/1
-duplex full
-no shut
-int e0/2
-duplex full
-no shut
-int e0/3
-duplex full
-no shut
+enable
+configure terminal
+ hostname Switch-1
+ interface ethernet 0/0
+  duplex full
+  no shutdown
+ interface ethernet 0/1
+  duplex full
+  no shutdown
+ interface ethernet 0/2
+  duplex full
+  no shutdown
+ interface ethernet 0/3
+  duplex full
+  no shutdown
 end
-wr
+write memory
 ```
 
 #### Switch-2
 ```bash
-en
-conf t
-ho Switch-2
-int e0/0
-duplex full
-no shut
-int e0/1
-duplex full
-no shut
-int e0/2
-duplex full
-no shut
+enable
+configure terminal
+ hostname Switch-2
+ interface ethernet 0/0
+  duplex full
+  no shutdown
+ interface ethernet 0/1
+  duplex full
+  no shutdown
+ interface ethernet 0/2
+  duplex full
+  no shutdown
 end
-wr
+write memory
 ```
 
 #### Switch-3
 ```bash
-en
-conf t
-ho Switch-3
-int e0/0
-duplex full
-no shut
-int e0/1
-duplex full
-no shut
-int e0/2
-duplex full
-no shut
+enable
+configure terminal
+ hostname Switch-3
+ interface ethernet 0/0
+  duplex full
+  no shutdown
+ interface ethernet 0/1
+  duplex full
+  no shutdown
+ interface ethernet 0/2
+  duplex full
+  no shutdown
 end
-wr
+write memory
 ```
 
 ### Hubs
 
 #### Hub-1
 ```bash
-en
-conf t
-ho Hub-1
-int fa0/0
-ip add 210.165.100.1 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.1.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Hub-1
+ interface fastEthernet 0/0
+  ip address 210.165.100.1 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.1.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.1 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map multicast dynamic
+  ip nhrp network-id 1
+  ip nhrp redirect
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  ip ospf cost 10
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-interface tunnel 100
-ip address 10.0.0.1 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map multicast dynamic
-ip nhrp network-id 1
-ip nhrp redirect
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-ip ospf cost 10
-no shutdown
-
-Router ospf 1
-router-id 1.1.1.1
-Network 192.168.1.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 1.1.1.1
+  network 192.168.1.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Hub-2
 ```bash
-en
-conf t
-ho Hub-2
-int fa0/0
-ip add 210.165.100.5 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.1.2 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Hub-2
+ interface fastEthernet 0/0
+  ip address 210.165.100.5 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.1.2 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.2 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map multicast dynamic
+  ip nhrp network-id 1
+  ip nhrp redirect
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp nhs 10.0.0.1
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  ip ospf cost 20
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-interface tunnel 100
-ip address 10.0.0.2 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map multicast dynamic
-ip nhrp network-id 1
-ip nhrp redirect
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map multicast 210.165.100.1
-ip nhrp nhs 10.0.0.1
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-ip ospf cost 20
-no shutdown
-
-Router ospf 1
-router-id 2.2.2.2
-Network 192.168.1.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 2.2.2.2
+  network 192.168.1.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 ### Spokes
 
 #### Spoke-1
 ```bash
-en
-conf t
-ho Spoke-1
-int fa0/0
-ip add 210.165.100.9 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.2.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-1
+ interface fastEthernet 0/0
+  ip address 210.165.100.9 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.2.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.3 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-interface tunnel 100
-ip address 10.0.0.3 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 3.3.3.3
-Network 192.168.2.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 3.3.3.3
+  network 192.168.2.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-2
 ```bash
-en
-conf t
-ho Spoke-2
-int fa0/0
-ip add 210.165.100.13 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.3.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-2
+ interface fastEthernet 0/0
+  ip address 210.165.100.13 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.3.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.4 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-interface tunnel 100
-ip address 10.0.0.4 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 4.4.4.4
-Network 192.168.3.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 4.4.4.4
+  network 192.168.3.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-3
 ```bash
-en
-conf t
-ho Spoke-3
-int fa0/0
-ip add 210.165.100.17 255.255.255.252
-no shu
-duplex full
-int fa1/0
-duplex full
-ip add 192.168.4.1 255.255.255.0
-no shu
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-3
+ interface fastEthernet 0/0
+  ip address 210.165.100.17 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.4.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.5 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-Interface tunnel 100
-Ip address 10.0.0.5 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 5 RADIUS Authentication and Accounting
-Network 192.168.4.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 5.5.5.5
+  network 192.168.4.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-4
 ```bash
-en
-conf t
-ho Spoke-4
-int fa0/0
-ip add 210.165.100.21 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.5.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-4
+ interface fastEthernet 0/0
+  ip address 210.165.100.21 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.5.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.6 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-Interface tunnel 100
-Ip address 10.0.0.6 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 6.6.6.6
-Network 192.168.5.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 6.6.6.6
+  network 192.168.5.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-5
 ```bash
-en
-conf t
-ho Spoke-5
-int fa0/0
-ip add 210.165.100.25 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.6.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-5
+ interface fastEthernet 0/0
+  ip address 210.165.100.25 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.6.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.7 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-Interface tunnel 100
-Ip address 10.0.0.7 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 7.7.7.7
-Network 192.168.6.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 7.7.7.7
+  network 192.168.6.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-6
 ```bash
-en
-conf t
-ho Spoke-6
-int fa0/0
-ip add 210.165.100.29 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.7.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-6
+ interface fastEthernet 0/0
+  ip address 210.165.100.29 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.7.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.8 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-Interface tunnel 100
-Ip address 10.0.0.8 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-sip holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 8.8.8.8
-Network 192.168.7.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 8.8.8.8
+  network 192.168.7.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 #### Spoke-7
 ```bash
-en
-conf t
-ho Spoke-7
-int fa0/0
-ip add 210.165.100.33 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 192.168.8.1 255.255.255.0
-no shu
-duplex full
-exi
-ip route 0.0.0.0 0.0.0.0 fa0/0
+enable
+configure terminal
+ hostname Spoke-7
+ interface fastEthernet 0/0
+  ip address 210.165.100.33 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.8.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
-crypto isakmp policy 10
- encryption aes 256
- hash sha256
- authentication pre-share
- group 14
- lifetime 86400
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
 
-crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
 
-crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
- mode tunnel
+ interface tunnel 100
+  ip address 10.0.0.9 255.255.255.0
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  tunnel protection ipsec profile DMVPN-PROFILE
+  ip ospf network point-to-multipoint
+  no shutdown
 
-crypto ipsec profile DMVPN-PROFILE
- set transform-set DMVPN-TSET
-
-Interface tunnel 100
-Ip address 10.0.0.9 255.255.255.0
-ip nhrp authentication NHRP_KEY
-ip nhrp map 10.0.0.1 210.165.100.1
-ip nhrp map 10.0.0.2 210.165.100.5
-ip nhrp map multicast 210.165.100.1
-ip nhrp map multicast 210.165.100.5
-ip nhrp network-id 1
-ip nhrp nhs 10.0.0.1 priority 1
-ip nhrp nhs 10.0.0.2 priority 5
-ip nhrp shortcut
-ip nhrp registration timeout 60
-ip nhrp holdtime 300 
-tunnel source fastEthernet0/0
-tunnel mode gre multipoint
-tunnel protection ipsec profile DMVPN-PROFILE
-ip ospf network point-to-multipoint
-no shutdown
-
-Router ospf 1
-router-id 9.9.9.9
-Network 192.168.8.0 0.0.0.255 area 0
-Network 10.0.0.0 0.0.0.255 area 0
+ router ospf 1
+  router-id 9.9.9.9
+  network 192.168.8.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
 end
-wr
+write memory
 ```
 
 ### ISPs
 
 #### ISP-1
 ```bash
-en
-conf t
-ho ISP-1
-int fa0/0
-ip add 210.165.100.2 255.255.255.252
-no shu
-speed 100
-duplex full
-int fa0/1
-ip add 210.165.100.41 255.255.255.252
-no shu
-speed 100
-duplex full
-int fa1/0
-ip add 210.165.100.37 255.255.255.252
-no shu
-speed 100
-duplex full
-int fa2/0
-ip add 8.8.8.1 255.255.255.0
-no shu
-speed 100
-duplex full
-exi
-no router ospf 1
-router rip
-ver 2
-no au
-pass fa0/0
-network 210.165.100.0 
-network 210.165.100.36 
-network 210.165.100.40 
-network 8.8.8.0  
-do wr
+enable
+configure terminal
+ hostname ISP-1
+ interface fastEthernet 0/0
+  ip address 210.165.100.2 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+ interface fastEthernet 0/1
+  ip address 210.165.100.41 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+ interface fastEthernet 1/0
+  ip address 210.165.100.37 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+ interface fastEthernet 2/0
+  ip address 8.8.8.1 255.255.255.0
+  no shutdown
+  speed 100
+  duplex full
+  exit
+ no router ospf 1
+ router rip
+  version 2
+  no auto-summary
+  passive-interface default
+  no passive-interface fastEthernet 0/0
+  no passive-interface fastEthernet 0/1
+  no passive-interface fastEthernet 1/0
+  no passive-interface fastEthernet 2/0
+  network 210.165.100.0
+  network 8.8.8.0
+do write memory
+end
 ```
 
 #### ISP-2
 ```bash
-en
-conf t
-ho ISP-2
-int fa0/0
-ip add 210.165.100.6 255.255.255.252
-no shu
-speed 100
-duplex full
-int fa0/1
-ip add 210.165.100.49 255.255.255.252
-no shu
-speed 100
-duplex full
-int fa1/0
-ip add 210.165.100.38 255.255.255.252
-no shu
-speed 100
-duplex full
-exi
-no router ospf 1
-router rip
-ver 2
-no au
-pass fa0/0
-network 210.165.100.4 
-network 210.165.100.36 
-network 210.165.100.48 
-do wr
+enable
+configure terminal
+ hostname ISP-2
+ interface fastEthernet 0/0
+  ip address 210.165.100.6 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+ interface fastEthernet 0/1
+  ip address 210.165.100.49 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+ interface fastEthernet 1/0
+  ip address 210.165.100.38 255.255.255.252
+  no shutdown
+  speed 100
+  duplex full
+  exit
+ no router ospf 1
+ router rip
+  version 2
+  no auto-summary
+  passive-interface default
+  no passive-interface fastEthernet 0/0
+  no passive-interface fastEthernet 0/1
+  no passive-interface fastEthernet 1/0
+  network 210.165.100.0
+do write memory
+end
 ```
 
 #### ISP-3
 ```bash
-en
-conf t
-ho ISP-3
-int fa0/0
-ip add 210.165.100.10 255.255.255.252
-no shu
-duplex full
-int fa4/0
-ip add 210.165.100.42 255.255.255.252
-no shu
-duplex full
-int fa5/0
-ip add 210.165.100.45 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 210.165.100.14 255.255.255.252
-no shu
-duplex full
-int fa2/0
-ip add 210.165.100.18 255.255.255.252
-no shu
-duplex full
-exi
-no router ospf 1
-router rip
-ver 2
-no au
-pass fa0/0
-network 210.165.100.8 
-network 210.165.100.12 
-network 210.165.100.16 
-network 210.165.100.40 
-network 210.165.100.44 
-do wr
+enable
+configure terminal
+ hostname ISP-3
+ interface fastEthernet 0/0
+  ip address 210.165.100.10 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 4/0  ! Giả sử đây là fastEthernet, nếu là GigabitEthernet thì sửa lại
+  ip address 210.165.100.42 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 5/0  ! Giả sử đây là fastEthernet
+  ip address 210.165.100.45 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 210.165.100.14 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 2/0
+  ip address 210.165.100.18 255.255.255.252
+  no shutdown
+  duplex full
+  exit
+ no router ospf 1
+ router rip
+  version 2
+  no auto-summary
+  passive-interface default
+  no passive-interface fastEthernet 0/0
+  no passive-interface fastEthernet 4/0
+  no passive-interface fastEthernet 5/0
+  no passive-interface fastEthernet 1/0
+  no passive-interface fastEthernet 2/0
+  network 210.165.100.0
+do write memory
+end
 ```
 
 #### ISP-4
 ```bash
-en
-conf t
-ho ISP-4
-int fa0/0
-ip add 210.165.100.22 255.255.255.252
-no shu
-duplex full
-int fa4/0
-ip add 210.165.100.50 255.255.255.252
-no shu
-duplex full
-int fa5/0
-ip add 210.165.100.46 255.255.255.252
-no shu
-duplex full
-int fa1/0
-ip add 210.165.100.26 255.255.255.252
-no shu
-duplex full
-int fa2/0
-ip add 210.165.100.30 255.255.255.252
-no shu
-duplex full
-int fa3/0
-ip add 210.165.100.34 255.255.255.252
-no shu
-duplex full
-exi
-no router ospf 1
-router rip
-ver 2
-no au
-pass fa0/0
-network 210.165.100.20 
-network 210.165.100.24 
-network 210.165.100.28 
-network 210.165.100.32 
-network 210.165.100.44 
-network 210.165.100.48 
-do wr
+enable
+configure terminal
+ hostname ISP-4
+ interface fastEthernet 0/0
+  ip address 210.165.100.22 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 4/0 ! Giả sử đây là fastEthernet
+  ip address 210.165.100.50 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 5/0 ! Giả sử đây là fastEthernet
+  ip address 210.165.100.46 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 210.165.100.26 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 2/0
+  ip address 210.165.100.30 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 3/0
+  ip address 210.165.100.34 255.255.255.252
+  no shutdown
+  duplex full
+  exit
+ no router ospf 1
+ router rip
+  version 2
+  no auto-summary
+  passive-interface default
+  no passive-interface fastEthernet 0/0
+  no passive-interface fastEthernet 4/0
+  no passive-interface fastEthernet 5/0
+  no passive-interface fastEthernet 1/0
+  no passive-interface fastEthernet 2/0
+  no passive-interface fastEthernet 3/0
+  network 210.165.100.0
+do write memory
+end
 ```
 
 ### Google Router
 ```bash
-en
-conf t 
-ho google
-int e0 
-ip add 8.8.8.8 255.255.255.0
-no shu
-duplex full
-exit
-ip route 0.0.0.0 0.0.0.0 8.8.8.1
-end 
-wr
+enable
+configure terminal
+ hostname google
+ interface ethernet 0
+  ip address 8.8.8.8 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 8.8.8.1
+end
+write memory
 ```
 
 ## Hướng dẫn Cài đặt
