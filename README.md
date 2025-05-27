@@ -47,6 +47,11 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.1.1
  ip route 0.0.0.0 0.0.0.0 192.168.1.2
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -65,6 +70,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.2.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -83,6 +93,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.3.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -101,6 +116,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.4.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -119,6 +139,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.5.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -137,6 +162,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.6.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -155,6 +185,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.7.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -173,6 +208,34 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.8.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
+ line vty 0 4
+  password telnet
+  login
+ do write memory
+end
+```
+
+#### PC-9
+```bash
+enable
+configure terminal
+ hostname PC-9
+ interface ethernet 0
+  ip address 192.168.9.10 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 192.168.9.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -194,6 +257,11 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.1.1
  ip route 0.0.0.0 0.0.0.0 192.168.1.2
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -212,6 +280,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.2.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -230,6 +303,11 @@ configure terminal
   duplex full
   exit
  ip route 0.0.0.0 0.0.0.0 192.168.5.1
+ enable secret telnet
+ line console 0
+ password telnet
+ login
+ exit 
  line vty 0 4
   password telnet
   login
@@ -314,6 +392,29 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
+ interface tunnel 100
+  ip address 10.0.0.1 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map multicast dynamic
+  ip nhrp network-id 1
+  ip nhrp redirect
+
+ interface tunnel 100
+  ip ospf network point-to-multipoint
+  ip ospf cost 10
+
+ router ospf 1
+  router-id 1.1.1.1
+  network 192.168.1.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
+
  crypto isakmp policy 10
   encryption aes 256
   hash sha256
@@ -321,30 +422,15 @@ configure terminal
   group 14
   lifetime 86400
  crypto isakmp key DMVPN_KEY address 0.0.0.0
-
  crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
   mode tunnel
  crypto ipsec profile DMVPN-PROFILE
   set transform-set DMVPN-TSET
 
  interface tunnel 100
-  ip address 10.0.0.1 255.255.255.0
-  ip nhrp authentication NHRP_KEY
-  ip nhrp map multicast dynamic
-  ip nhrp network-id 1
-  ip nhrp redirect
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
   tunnel protection ipsec profile DMVPN-PROFILE
-  ip ospf network point-to-multipoint
-  ip ospf cost 10
-  no shutdown
 
- router ospf 1
-  router-id 1.1.1.1
-  network 192.168.1.0 0.0.0.255 area 0
-  network 10.0.0.0 0.0.0.255 area 0
-end
+ end
 write memory
 ```
 
@@ -364,6 +450,32 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
+ interface tunnel 100
+  ip address 10.0.0.2 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map multicast dynamic 
+  ip nhrp network-id 1
+  ip nhrp redirect
+  ip nhrp map 10.0.0.1 210.165.100.1 
+  ip nhrp map multicast 210.165.100.1 
+  ip nhrp nhs 10.0.0.1 
+
+ interface tunnel 100
+  ip ospf network point-to-multipoint
+  ip ospf cost 20
+
+ router ospf 1
+  router-id 2.2.2.2
+  network 192.168.1.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
+
  crypto isakmp policy 10
   encryption aes 256
   hash sha256
@@ -371,33 +483,15 @@ configure terminal
   group 14
   lifetime 86400
  crypto isakmp key DMVPN_KEY address 0.0.0.0
-
  crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
   mode tunnel
  crypto ipsec profile DMVPN-PROFILE
   set transform-set DMVPN-TSET
 
  interface tunnel 100
-  ip address 10.0.0.2 255.255.255.0
-  ip nhrp authentication NHRP_KEY
-  ip nhrp map multicast dynamic
-  ip nhrp network-id 1
-  ip nhrp redirect
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  ip nhrp map 10.0.0.1 210.165.100.1
-  ip nhrp map multicast 210.165.100.1
-  ip nhrp nhs 10.0.0.1
   tunnel protection ipsec profile DMVPN-PROFILE
-  ip ospf network point-to-multipoint
-  ip ospf cost 20
-  no shutdown
 
- router ospf 1
-  router-id 2.2.2.2
-  network 192.168.1.0 0.0.0.255 area 0
-  network 10.0.0.0 0.0.0.255 area 0
-end
+ end
 write memory
 ```
 
@@ -419,21 +513,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.3 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -445,17 +533,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 3.3.3.3
   network 192.168.2.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -475,21 +577,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.4 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -501,17 +597,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 4.4.4.4
   network 192.168.3.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -531,21 +641,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.5 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -557,17 +661,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 5.5.5.5
   network 192.168.4.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -587,21 +705,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.6 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -613,17 +725,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 6.6.6.6
   network 192.168.5.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -643,21 +769,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.7 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -669,17 +789,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 7.7.7.7
   network 192.168.6.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -699,21 +833,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.8 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -725,17 +853,31 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 8.8.8.8
   network 192.168.7.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -755,21 +897,15 @@ configure terminal
   exit
  ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
 
- crypto isakmp policy 10
-  encryption aes 256
-  hash sha256
-  authentication pre-share
-  group 14
-  lifetime 86400
- crypto isakmp key DMVPN_KEY address 0.0.0.0
-
- crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
-  mode tunnel
- crypto ipsec profile DMVPN-PROFILE
-  set transform-set DMVPN-TSET
-
  interface tunnel 100
   ip address 10.0.0.9 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
   ip nhrp authentication NHRP_KEY
   ip nhrp map 10.0.0.1 210.165.100.1
   ip nhrp map 10.0.0.2 210.165.100.5
@@ -781,17 +917,95 @@ configure terminal
   ip nhrp shortcut
   ip nhrp registration timeout 60
   ip nhrp holdtime 300
-  tunnel source fastEthernet0/0
-  tunnel mode gre multipoint
-  tunnel protection ipsec profile DMVPN-PROFILE
+
+ interface tunnel 100
   ip ospf network point-to-multipoint
-  no shutdown
 
  router ospf 1
   router-id 9.9.9.9
   network 192.168.8.0 0.0.0.255 area 0
   network 10.0.0.0 0.0.0.255 area 0
-end
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
+write memory
+```
+
+#### Spoke-8
+```bash
+enable
+configure terminal
+ hostname Spoke-8
+ interface fastEthernet 0/0
+  ip address 210.165.100.53 255.255.255.252
+  no shutdown
+  duplex full
+ interface fastEthernet 1/0
+  ip address 192.168.9.1 255.255.255.0
+  no shutdown
+  duplex full
+  exit
+ ip route 0.0.0.0 0.0.0.0 fastEthernet 0/0
+
+ interface tunnel 100
+  ip address 10.0.0.10 255.255.255.0
+  ip mtu 1400
+  ip tcp adjust-mss 1360
+  tunnel source fastEthernet0/0
+  tunnel mode gre multipoint
+  no shutdown
+
+ interface tunnel 100
+  ip nhrp authentication NHRP_KEY
+  ip nhrp map 10.0.0.1 210.165.100.1
+  ip nhrp map 10.0.0.2 210.165.100.5
+  ip nhrp map multicast 210.165.100.1
+  ip nhrp map multicast 210.165.100.5
+  ip nhrp network-id 1
+  ip nhrp nhs 10.0.0.1 priority 1
+  ip nhrp nhs 10.0.0.2 priority 5
+  ip nhrp shortcut
+  ip nhrp registration timeout 60
+  ip nhrp holdtime 300
+
+ interface tunnel 100
+  ip ospf network point-to-multipoint
+
+ router ospf 1
+  router-id 10.10.10.10
+  network 192.168.9.0 0.0.0.255 area 0
+  network 10.0.0.0 0.0.0.255 area 0
+
+ crypto isakmp policy 10
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  lifetime 86400
+ crypto isakmp key DMVPN_KEY address 0.0.0.0
+ crypto ipsec transform-set DMVPN-TSET esp-aes 256 esp-sha256-hmac
+  mode tunnel
+ crypto ipsec profile DMVPN-PROFILE
+  set transform-set DMVPN-TSET
+
+ interface tunnel 100
+  tunnel protection ipsec profile DMVPN-PROFILE
+
+ end
 write memory
 ```
 
@@ -881,12 +1095,16 @@ configure terminal
   ip address 210.165.100.10 255.255.255.252
   no shutdown
   duplex full
- interface fastEthernet 4/0  ! Giả sử đây là fastEthernet, nếu là GigabitEthernet thì sửa lại
+ interface fastEthernet 4/0  
   ip address 210.165.100.42 255.255.255.252
   no shutdown
   duplex full
- interface fastEthernet 5/0  ! Giả sử đây là fastEthernet
+ interface fastEthernet 5/0  
   ip address 210.165.100.45 255.255.255.252
+  no shutdown
+  duplex full
+  interface fastEthernet 6/0  
+  ip address 210.165.100.54 255.255.255.252
   no shutdown
   duplex full
  interface fastEthernet 1/0
@@ -906,6 +1124,7 @@ configure terminal
   no passive-interface fastEthernet 0/0
   no passive-interface fastEthernet 4/0
   no passive-interface fastEthernet 5/0
+  no passive-interface fastEthernet 6/0
   no passive-interface fastEthernet 1/0
   no passive-interface fastEthernet 2/0
   network 210.165.100.0
@@ -922,11 +1141,11 @@ configure terminal
   ip address 210.165.100.22 255.255.255.252
   no shutdown
   duplex full
- interface fastEthernet 4/0 ! Giả sử đây là fastEthernet
+ interface fastEthernet 4/0 
   ip address 210.165.100.50 255.255.255.252
   no shutdown
   duplex full
- interface fastEthernet 5/0 ! Giả sử đây là fastEthernet
+ interface fastEthernet 5/0 
   ip address 210.165.100.46 255.255.255.252
   no shutdown
   duplex full
